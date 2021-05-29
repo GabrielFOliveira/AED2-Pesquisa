@@ -9,7 +9,9 @@
 const char* getfield(char* line, int num)
 {
 	const char* tok;
-	for (tok = strtok(line, ";");
+	char linha[1024];
+	strcpy(linha,line);
+	for (tok = strtok(linha, ";");
 			tok && *tok;
 			tok = strtok(NULL, ";\n"))
 	{
@@ -31,16 +33,26 @@ int main(){
     while (fgets(line, 1024, pont_arq))
 	{
 		char* tmp = strdup(line);
-        //a.municipio= getfield(tmp,1);
-        //a.codMunicipio=getfield(tmp,2);
-        a.codRegiaoSaude=getfield(tmp,3);
-        //strcpy(a.nomeRegiaoSaude,getfield(tmp,4));
-        //a.populacao=getfield(tmp,7);
-        //a.casosAcumulados=getfield(tmp,8);
-        //a.obitosAcumulados=getfield(tmp,10);
-        //void print_celula(a);
-        printf("%s", tmp);
-        printf("Field 3 would be %s\n", getfield(tmp, 4));
+		printf("%s\n", tmp);
+        strcpy(a.municipio,getfield(tmp,1));
+        printf("%s\n", a.municipio);
+        a.codMunicipio=atol(getfield(tmp,2));
+        printf("%d\n", a.codMunicipio);
+        a.codRegiaoSaude=atol(getfield(tmp,3));
+        printf("%d\n", a.codRegiaoSaude);
+        strcpy(a.nomeRegiaoSaude,getfield(tmp,4));
+        printf("%s\n", a.nomeRegiaoSaude);
+        a.populacao=atol(getfield(tmp,7));
+        printf("%d\n", a.populacao);
+        a.casosAcumulados=atol(getfield(tmp,8));
+        printf("%d\n", a.casosAcumulados);
+
+        a.obitosAcumulados=atol(getfield(tmp,10));
+        //print_celula(a);
+
+
+        printf("%s\n", tmp);
+       // printf("Field 3 would be %s\n", getfield(tmp, 3));
 
 		free(tmp);
 	}
