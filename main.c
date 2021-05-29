@@ -41,10 +41,10 @@ int main(){
         a.casosAcumulados=atol(getfield(tmp,8));
 
         a.obitosAcumulados=atol(getfield(tmp,10));
-        //print_celula(a);
+        print_celula(a);
 
 
-        printf("%s\n", tmp);
+ 
        // printf("Field 3 would be %s\n", getfield(tmp, 3));
 
 		free(tmp);

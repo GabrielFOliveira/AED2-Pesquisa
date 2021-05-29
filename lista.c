@@ -2,8 +2,8 @@
 
 void print_celula(Celula c){
   printf("\nMunicipio: %s \n"
-         "Codigo do municipio: %d\n"
-         "Codigo da Regiao de Saude: %ld\n"
+         "Codigo do municipio: %ld\n"
+         "Codigo da Regiao de Saude: %d\n"
          "Nome da Regiao de Saude: %s\n"
          "Data: %d-%d-%d\n"
          "Populacao TCU 2019: %ld\n"
