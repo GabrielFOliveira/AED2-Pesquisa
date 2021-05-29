@@ -31,14 +31,15 @@ int main(){
     while (fgets(line, 1024, pont_arq))
 	{
 		char* tmp = strdup(line);
-        /*a.municipio= getfield(tmp,1);
-        a.codMunicipio=getfield(tmp,2);
+        //a.municipio= getfield(tmp,1);
+        //a.codMunicipio=getfield(tmp,2);
         a.codRegiaoSaude=getfield(tmp,3);
-        a.nomeRegiaoSaude=getfield(tmp,4);
-        a.populacao=getfield(tmp,7);
-        a.casosAcumulados=getfield(tmp,8);
-        a.obitosAcumulados=getfield(tmp,10;);
-        void print_celula(a);*/
+        //strcpy(a.nomeRegiaoSaude,getfield(tmp,4));
+        //a.populacao=getfield(tmp,7);
+        //a.casosAcumulados=getfield(tmp,8);
+        //a.obitosAcumulados=getfield(tmp,10);
+        //void print_celula(a);
+        printf("%s", tmp);
         printf("Field 3 would be %s\n", getfield(tmp, 4));
 
 		free(tmp);
