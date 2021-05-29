@@ -1,4 +1,4 @@
-//#ifndef  LISTA_H
+#ifndef  LISTA_H
 #define  LISTA_H
 #include <stdlib.h>
 #include <stdio.h>
@@ -30,3 +30,4 @@ int size_lista(Lista *l);
 void print_celula(Celula c);
 
 
+#endif

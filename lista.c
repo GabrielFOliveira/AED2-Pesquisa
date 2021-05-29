@@ -2,16 +2,17 @@
 
 void print_celula(Celula c){
   printf("\nMunicipio: %s \n"
-         "Codigo do municipio: %d\n
-         "Codigo da Regiao de Saude: %d\n"
+         "Codigo do municipio: %d\n"
+         "Codigo da Regiao de Saude: %ld\n"
          "Nome da Regiao de Saude: %s\n"
-         "Data: %d/%d/%d\n"
-         "População TCU 2019: %d\n"
-         "Casos Acumulados: %d\n"
-         "Obitos Acumulados: %d \n\n",
+         "Data: %d-%d-%d\n"
+         "Populacao TCU 2019: %ld\n"
+         "Casos Acumulados: %ld\n"
+         "Obitos Acumulados: %ld \n\n",
          c.municipio,
-         c.codmun,
+         c.codMunicipio,
          c.codRegiaoSaude,
+         c.nomeRegiaoSaude,
          c.dia, c.mes, c.ano,
          c.populacao,
          c.casosAcumulados,

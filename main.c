@@ -33,19 +33,12 @@ int main(){
     while (fgets(line, 1024, pont_arq))
 	{
 		char* tmp = strdup(line);
-		printf("%s\n", tmp);
-        strcpy(a.municipio,getfield(tmp,1));
-        printf("%s\n", a.municipio);
+		strcpy(a.municipio,getfield(tmp,1));
         a.codMunicipio=atol(getfield(tmp,2));
-        printf("%d\n", a.codMunicipio);
         a.codRegiaoSaude=atol(getfield(tmp,3));
-        printf("%d\n", a.codRegiaoSaude);
         strcpy(a.nomeRegiaoSaude,getfield(tmp,4));
-        printf("%s\n", a.nomeRegiaoSaude);
         a.populacao=atol(getfield(tmp,7));
-        printf("%d\n", a.populacao);
         a.casosAcumulados=atol(getfield(tmp,8));
-        printf("%d\n", a.casosAcumulados);
 
         a.obitosAcumulados=atol(getfield(tmp,10));
         //print_celula(a);
