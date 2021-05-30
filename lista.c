@@ -1,5 +1,6 @@
 #include "lista.h"
 
+
 void print_celula(Celula c){
   printf("\nMunicipio: %s \n"
          "Codigo do municipio: %ld\n"
@@ -31,5 +32,15 @@ void add_lista(Lista *l, Celula c){
     l->n++;
   }
 }
+
+int size_lista(Lista *l){
+  return l->n;
+}
+
+void print_lista(Lista *l){
+ for(int i=0; i<l->n; i++)
+    print_celula(l->celulas[i]);
+}
+
 
 
