@@ -5,7 +5,7 @@ void print_celula(Celula c){
          "Codigo do municipio: %ld\n"
          "Codigo da Regiao de Saude: %d\n"
          "Nome da Regiao de Saude: %s\n"
-         "Data: %d-%d-%d\n"
+         "Data: %d/%d/%d\n"
          "Populacao TCU 2019: %ld\n"
          "Casos Acumulados: %ld\n"
          "Obitos Acumulados: %ld \n\n",
@@ -13,7 +13,7 @@ void print_celula(Celula c){
          c.codMunicipio,
          c.codRegiaoSaude,
          c.nomeRegiaoSaude,
-         c.dia, c.mes, c.ano,
+         c.data,c.data,c.data,
          c.populacao,
          c.casosAcumulados,
          c.obitosAcumulados);
