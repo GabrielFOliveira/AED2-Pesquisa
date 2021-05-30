@@ -13,6 +13,7 @@ typedef struct Celula{
     int data;
     long int populacao;
     long int casosAcumulados;
+    long int casosNovos;
     long int obitosAcumulados;
 }Celula;
 

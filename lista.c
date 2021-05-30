@@ -9,6 +9,7 @@ void print_celula(Celula c){
          "Data: %d/%d/%d\n"
          "Populacao TCU 2019: %ld\n"
          "Casos Acumulados: %ld\n"
+         "Casos Novos: %ld\n"
          "Obitos Acumulados: %ld \n\n",
          c.municipio,
          c.codMunicipio,
@@ -17,6 +18,7 @@ void print_celula(Celula c){
          (c.data-c.data/100*100),(c.data/100-c.data/10000*100),c.data/10000,
          c.populacao,
          c.casosAcumulados,
+         c.casosNovos,
          c.obitosAcumulados);
 }
 void new_lista(Lista *l){

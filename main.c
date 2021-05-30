@@ -55,8 +55,11 @@ int main(){
     a.data=dia+mes+ano;
     a.populacao=atol(getfield(tmp,7));
     a.casosAcumulados=atol(getfield(tmp,8));
+    a.casosNovos=atol(getfield(tmp,9));
     a.obitosAcumulados=atol(getfield(tmp,10));
     print_celula(a);
+
+
 		free(tmp);
 
 	}
