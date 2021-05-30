@@ -33,18 +33,12 @@ const char* getfieldbar(char* line, int num){
 	return NULL;
 }
 
-<<<<<<< Updated upstream
 
 
-int main(){
-  Lista celulas;
-  new_lista(&celulas);
-=======
 Celula getarqcelula(char* line){
   char data[10];
 	int dia,mes,ano;
   char* tmp = strdup(line);
->>>>>>> Stashed changes
   Celula a;
   strcpy(a.municipio,getfield(tmp,1));
   a.codMunicipio=atol(getfield(tmp,2));
@@ -64,25 +58,32 @@ Celula getarqcelula(char* line){
 }
 
 void main_seq(){
-  Lista* lista;
+  Lista lista;
   new_lista(&lista);
-  Lista_l* lista_l;
+  Lista_l lista_l;
   new_lista_l(&lista_l);
   FILE *pont_arq;
   char line[1024];
   pont_arq = fopen("dadosteste.csv", "r");
   fgets(line, 1024, pont_arq);
-  add_lista(lista,getarqcelula(line));
+  char* tmp = strdup(line);
+  add_lista(&lista,getarqcelula(tmp));
+  print_lista(&lista);
   while (fgets(line, 1024, pont_arq)){
-    char* tmp = strdup(line);
-    if(lista_l->listas[lista_l->n].celulas[0].municipio==getfield(tmp,1)){
-      add_lista(lista, getarqcelula(line));
+    tmp = strdup(line);
+    if(lista_l.listas[lista_l.n].celulas[0].municipio==getfield(tmp,1)){
+      add_lista(&lista, getarqcelula(line));
     }
     else{
-      add_lista_l(lista_l,lista);
-      new_lista(lista);
+      add_lista_l(&lista_l,&lista);
+      new_lista(&lista);
+      add_lista(&lista, getarqcelula(line));
     }
+  printf("%s\n %d", line,lista_l.n);
   }
+  add_lista_l(&lista_l,&lista);
+  print_lista_l(&lista_l);
+
 
 }
 

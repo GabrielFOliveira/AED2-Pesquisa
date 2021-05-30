@@ -1,12 +1,8 @@
 #include "pesquisa_simples.h"
 
 //Estrutura Utilizada para a Pesquisa sequencial e Pesquisa binaria
-<<<<<<< Updated upstream
-void new_lista_l(Lista_l *ll){
-=======
 
 void new_lista_l(Lista_l* ll){
->>>>>>> Stashed changes
   ll->listas = (Lista*)malloc(MAX * sizeof(Lista));
   new_lista(ll->listas);
   ll->n = 0;
@@ -29,6 +25,7 @@ int size_lista_l(Lista_l *ll){
 }
 
 void print_lista_l(Lista_l *ll){
- for(int i=0; i<ll->n; i++)
-    printf("%s",ll->listas[i].celulas[0].municipio);
+ for(int i=0; i<=ll->n; i++)
+    printf("%s\n",ll->listas[i].celulas[0].municipio);
+    printf("a\n");
 }
