@@ -44,7 +44,7 @@ int main(){
         print_celula(a);
 
 
- 
+
        // printf("Field 3 would be %s\n", getfield(tmp, 3));
 
 		free(tmp);
