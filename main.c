@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "lista.h"
 #include "pesquisa_simples.h"
 //#include <errno.h>
@@ -31,6 +32,7 @@ const char* getfieldbar(char* line, int num){
 	}
 	return NULL;
 }
+
 
 
 int main(){

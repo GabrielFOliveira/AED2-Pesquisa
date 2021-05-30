@@ -1,7 +1,6 @@
 #include "pesquisa_simples.h"
 
 //Estrutura Utilizada para a Pesquisa sequencial e Pesquisa binaria
-
 void new_lista_l(Lista_l *ll){
   ll->listas = (Lista*)malloc(MAX * sizeof(Lista));
   ll->n = 0;

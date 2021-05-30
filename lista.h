@@ -5,6 +5,7 @@
 #include <string.h>
 #define MAX 10000
 
+//estrutura da lista mais interna(dados do município
 typedef struct Celula{
     char municipio[100];
     long int codMunicipio;
@@ -17,6 +18,7 @@ typedef struct Celula{
     long int obitosAcumulados;
 }Celula;
 
+//lista
 typedef struct Lista{
     Celula *celulas;
     int n;
