@@ -33,37 +33,79 @@ const char* getfieldbar(char* line, int num){
 	return NULL;
 }
 
+<<<<<<< Updated upstream
 
 
 int main(){
   Lista celulas;
   new_lista(&celulas);
-  Celula a;
-  FILE *pont_arq;
-  pont_arq = fopen("dadosteste.csv", "r");
-	char line[1024];
-	char data[10];
+=======
+Celula getarqcelula(char* line){
+  char data[10];
 	int dia,mes,ano;
+  char* tmp = strdup(line);
+>>>>>>> Stashed changes
+  Celula a;
+  strcpy(a.municipio,getfield(tmp,1));
+  a.codMunicipio=atol(getfield(tmp,2));
+  a.codRegiaoSaude=atol(getfield(tmp,3));
+  strcpy(a.nomeRegiaoSaude,getfield(tmp,4));
+  strcpy(data,getfield(tmp,5));
+  dia=atoi(getfieldbar(data,1));
+  mes=atoi(getfieldbar(data,2))*100;
+  ano=atoi(getfieldbar(data,3))*10000;
+  a.data=dia+mes+ano;  //20210530
+  a.populacao=atol(getfield(tmp,7));
+  a.casosAcumulados=atol(getfield(tmp,8));
+  a.casosNovos=atol(getfield(tmp,9));
+  a.obitosAcumulados=atol(getfield(tmp,10));
+  print_celula(a);
+  return(a);
+}
+
+void main_seq(){
+  Lista* lista;
+  new_lista(&lista);
+  Lista_l* lista_l;
+  new_lista_l(&lista_l);
+  FILE *pont_arq;
+  char line[1024];
+  pont_arq = fopen("dadosteste.csv", "r");
+  fgets(line, 1024, pont_arq);
+  add_lista(lista,getarqcelula(line));
   while (fgets(line, 1024, pont_arq)){
-		char* tmp = strdup(line);
-		strcpy(a.municipio,getfield(tmp,1));
-    a.codMunicipio=atol(getfield(tmp,2));
-    a.codRegiaoSaude=atol(getfield(tmp,3));
-    strcpy(a.nomeRegiaoSaude,getfield(tmp,4));
-    strcpy(data,getfield(tmp,5));
-    dia=atoi(getfieldbar(data,1));
-    mes=atoi(getfieldbar(data,2))*100;
-    ano=atoi(getfieldbar(data,3))*10000;
-    a.data=dia+mes+ano;
-    a.populacao=atol(getfield(tmp,7));
-    a.casosAcumulados=atol(getfield(tmp,8));
-    a.casosNovos=atol(getfield(tmp,9));
-    a.obitosAcumulados=atol(getfield(tmp,10));
-    print_celula(a);
-
-
-		free(tmp);
-
-	}
+    char* tmp = strdup(line);
+    if(lista_l->listas[lista_l->n].celulas[0].municipio==getfield(tmp,1)){
+      add_lista(lista, getarqcelula(line));
+    }
+    else{
+      add_lista_l(lista_l,lista);
+      new_lista(lista);
+    }
+  }
 
 }
+
+int main(){
+  int tipo;
+	scanf("%d", &tipo);
+	switch ( tipo ) {
+    case 1 :
+      main_seq();
+    break;
+    case 2 :
+      //main_bin();
+    break;
+    case 3 :
+      //main_arv_bin();
+    break;
+    case 4 :
+      //main_arv_bal();
+    break;
+    case 5 :
+      //main_hash();
+    break;
+
+  }
+}
+

@@ -15,7 +15,7 @@ void print_celula(Celula c){
          c.codMunicipio,
          c.codRegiaoSaude,
          c.nomeRegiaoSaude,
-         (c.data-c.data/100*100),(c.data/100-c.data/10000*100),c.data/10000,
+         (c.data-c.data/100*100),(c.data/100-c.data/10000*100),c.data/10000, //30/05/2021
          c.populacao,
          c.casosAcumulados,
          c.casosNovos,

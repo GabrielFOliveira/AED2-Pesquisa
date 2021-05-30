@@ -14,7 +14,7 @@ typedef struct Lista_l{
 }Lista_l;
 
 void new_lista_l(Lista_l *ll);
-void add_lista_l(Lista_l *ll, Lista l);
+void add_lista_l(Lista_l *ll, Lista *l);
 void print_lista_l(Lista_l *ll);
 int size_lista_l(Lista_l *ll);
 
