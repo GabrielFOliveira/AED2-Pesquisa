@@ -39,7 +39,7 @@ int main(){
     new_lista(&celulas);
     Celula a;
     FILE *pont_arq;
-    pont_arq = fopen("dados.csv", "r");
+    pont_arq = fopen("dadosteste.csv", "r");
 	char line[1024];
 	char data[10];
 	int dia,mes,ano;
