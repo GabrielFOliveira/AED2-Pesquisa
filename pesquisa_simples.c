@@ -23,5 +23,5 @@ int size_lista_l(Lista_l *ll){
 
 void print_lista_l(Lista_l *ll){
  for(int i=0; i<ll->n; i++)
-    printf("%s",ll->listas[i]->celulas[0]->municipio);
+    printf("%s",ll->listas[i].celulas[0].municipio);
 }

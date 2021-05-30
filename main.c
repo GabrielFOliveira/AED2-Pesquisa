@@ -58,6 +58,7 @@ int main(){
     a.obitosAcumulados=atol(getfield(tmp,10));
     print_celula(a);
 		free(tmp);
+
 	}
 
 }
