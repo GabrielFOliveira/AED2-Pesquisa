@@ -53,7 +53,7 @@ Celula getarqcelula(char* line){
   a.casosAcumulados=atol(getfield(tmp,8));
   a.casosNovos=atol(getfield(tmp,9));
   a.obitosAcumulados=atol(getfield(tmp,10));
-  print_celula(a);
+  //print_celula(a);
   return(a);
 }
 
@@ -79,7 +79,8 @@ void main_seq(){
       new_lista(&lista);
       add_lista(&lista, getarqcelula(line));
     }
-  printf("%s\n %d", line,lista_l.n);
+
+
   }
   add_lista_l(&lista_l,&lista);
   print_lista_l(&lista_l);

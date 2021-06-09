@@ -13,8 +13,9 @@ void add_lista_l(Lista_l *ll, Lista *l){
   if(ll->n == MAX){
     printf("Erro: Lista cheia!\n\n");
   }else{
-    for(int i=0;i<l->n;i++){
-      add_lista(ll->listas, l->celulas[i]);
+    new_lista(&ll->listas[ll->n]);
+    for(int n=0;n<l->n;n++){
+      add_lista(&ll->listas[ll->n], l->celulas[n]);
     }
     ll->n++;
   }
@@ -25,7 +26,7 @@ int size_lista_l(Lista_l *ll){
 }
 
 void print_lista_l(Lista_l *ll){
- for(int i=0; i<=ll->n; i++)
-    printf("%s\n",ll->listas[i].celulas[0].municipio);
-    printf("a\n");
+ for(int i=0; i<ll->n; i++)
+    printf("%s\n\n",ll->listas[i].celulas[0].municipio);
+
 }
