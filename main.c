@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "lista.h"
-#include "pesquisa_simples.h"
+//#include "pesquisa_simples.h"
 #include <locale.h>
 
 int n=0; // Quantidade de listas no vetor
@@ -96,7 +96,7 @@ int main(){
 	scanf("%d", &tipo);
 	switch ( tipo ) {
     case 1 :
-      //main_seq();
+      print_lista(&lista[pesquisaSequencialMun(lista,"Abadia dos Dourados", n)]);
     break;
     case 2 :
       //main_bin();

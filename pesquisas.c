@@ -1,5 +1,5 @@
 #include "lista.h"
-#include "pesquisa_simples.h"
+//#include "pesquisa_simples.h"
 #include <stdbool.h>
 
 void swap(Lista *n1, Lista *n2){
@@ -31,10 +31,11 @@ void quicksort(Lista *array, int n) {
 
 
 //pesquisa sequencial municipio
-Lista_l pesquisaSequencialMun(Lista *l, char nome, int n){
+int pesquisaSequencialMun(Lista *l, char *nome, int n){
     for(int i=0; i<n; i++){
-        if(strcmp(nome,l[i].celulas[0].municipio)==0){
-            return ll[i];
+        if(strcmp(nome,l[i].celulas->municipio)==0){
+            return i;
+
         }
     }
 }
