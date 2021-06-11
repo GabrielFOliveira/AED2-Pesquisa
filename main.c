@@ -99,9 +99,11 @@ int main(){
       print_lista(&lista[pesquisaSequencialMun(lista,"Abadia dos Dourados", n)]);
     break;
     case 2 :
+      print_lista(&lista[pesquisaSequencialDia(lista,20200327, n)]);
       //main_bin();
     break;
     case 3 :
+      print_lista(&lista[pesquisaBinariaMun(lista,"Abadia dos Dourados", n)]);
       //main_arv_bin();
     break;
     case 4 :

@@ -9,6 +9,7 @@ void swap(Lista *n1, Lista *n2){
   *n2 = aux;
 
 }
+
 void quicksortRec(Lista *array, int esq, int dir) {
     int i = esq, j = dir;
     int pivo = array->celulas[(dir+esq)/2].data;
@@ -40,15 +41,15 @@ int pesquisaSequencialMun(Lista *l, char *nome, int n){
     }
 }
 
-Lista pesquisaSequencialDia(Lista *l, int data){
+int pesquisaSequencialDia(Lista *l, int data, int n){
     for(int i=0; i<l->n; i++){
         if(data== l->celulas[i].data){
-            return l[i];
+            return i;
         }
     }
 }
-//pesquisa binária para pesquisar o município na lista de listas
-void pesquisaBinariaMun(Lista *l, char nome, int n){
+//pesquisa binária para pesquisar o município no vetor de lista
+int pesquisaBinariaMun(Lista *l, char nome, int n){
 
     quicksort(l,n);
 
@@ -61,7 +62,8 @@ void pesquisaBinariaMun(Lista *l, char nome, int n){
         if (strcmp(nome,l[meio].celulas[0].municipio)==0){
             resp = true;
             esq = n;
-        }else if(strcmp(nome,l[meio].celulas[0].municipio)>0)
+            return meio;
+        }else if(strcmp(nome,l[meio].celulas[0].municipio)==1)
         {
             esq = meio + 1;
 
@@ -70,6 +72,10 @@ void pesquisaBinariaMun(Lista *l, char nome, int n){
         }
 
     }
+
+    return -1;
+
+
 
 }
 
