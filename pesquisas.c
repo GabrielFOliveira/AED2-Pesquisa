@@ -25,15 +25,15 @@ void quicksortRec(Lista *array, int esq, int dir) {
     if (i < dir)  quicksortRec(array, i, dir);
 }
 //=============================================================================
-void quicksort(Lista *array) {
-    quicksortRec(array, 0, array->n);
+void quicksort(Lista *array, int n) {
+    quicksortRec(array, 0, n);
 }
 
 
 //pesquisa sequencial municipio
-Lista_l pesquisaSequencialMun(Lista_l *ll, char nome){
-    for(int i=0; i<ll->n; i++){
-        if(strcmp(nome,ll->listas[i].celulas[0].municipio)==0){
+Lista_l pesquisaSequencialMun(Lista *l, char nome, int n){
+    for(int i=0; i<n; i++){
+        if(strcmp(nome,l[i].celulas[0].municipio)==0){
             return ll[i];
         }
     }
@@ -47,26 +47,26 @@ Lista pesquisaSequencialDia(Lista *l, int data){
     }
 }
 //pesquisa binária para pesquisar o município na lista de listas
-void pesquisaBinariaMun(Lista_l *ll, char nome){
+void pesquisaBinariaMun(Lista *l, char nome, int n){
 
-    quicksort(ll);
+    quicksort(l,n);
 
     bool resp = false;
 
-    int dir = ll->n - 1, esq = 0, meio;
+    int dir = n - 1, esq = 0, meio;
 
     while (esq <= dir){
         meio = (esq + dir) / 2;
-    if (strcmp(nome,ll->listas[meio].celulas[0].municipio)==0){
-        resp = true;
-        esq = ll->n;
-    }else if(strcmp(nome,ll->listas[meio].celulas[0].municipio)>0)
-    {
-        esq = meio + 1;
+        if (strcmp(nome,l[meio].celulas[0].municipio)==0){
+            resp = true;
+            esq = n;
+        }else if(strcmp(nome,l[meio].celulas[0].municipio)>0)
+        {
+            esq = meio + 1;
 
-    } else{
-        dir = meio - 1;
-    }
+        } else{
+            dir = meio - 1;
+        }
 
     }
 
