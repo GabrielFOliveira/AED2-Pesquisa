@@ -4,7 +4,9 @@
 #include <stdbool.h>
 #include "lista.h"
 #include "pesquisa_simples.h"
-//#include <errno.h>
+
+int n=0; // Quantidade de listas no vetor
+
 const char* getfield(char* line, int num){
 	const char* tok;
 	char linha[1024];
@@ -53,14 +55,12 @@ Celula getarqcelula(char* line){
   a.casosAcumulados=atol(getfield(tmp,8));
   a.casosNovos=atol(getfield(tmp,9));
   a.obitosAcumulados=atol(getfield(tmp,10));
-  //print_celula(a);
   return(a);
 }
 
-void carrega(){
-  Lista lista[100];
-  int n=0;
-  for(int i=0;i<100;i++){
+void carrega(Lista *lista){
+
+  for(int i=0;i<1000;i++){
     new_lista(&lista[i]);
   }
   FILE *pont_arq;
@@ -69,7 +69,6 @@ void carrega(){
   fgets(line, 1024, pont_arq);
   char* tmp = strdup(line);
   add_lista(&lista[n],getarqcelula(tmp));
-  print_lista(&lista[n]);
   n++;
   while (fgets(line, 1024, pont_arq)){
     tmp = strdup(line);
@@ -82,13 +81,16 @@ void carrega(){
     }
   }
   for(int i=0;i<n;i++){
-    printf("%s\n",lista[i].celulas->municipio);
+//    printf("%s\n",lista[i].celulas->municipio);
+      print_lista(&lista[i]);
   }
 }
 
+
 int main(){
   int tipo;
-  carrega();
+  Lista lista[1000];
+  carrega(lista);
 	scanf("%d", &tipo);
 	switch ( tipo ) {
     case 1 :
