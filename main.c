@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include "lista.h"
 #include "pesquisa_simples.h"
+#include <locale.h>
 
 int n=0; // Quantidade de listas no vetor
 
@@ -88,6 +89,7 @@ void carrega(Lista *lista){
 
 
 int main(){
+  setlocale(LC_ALL, "Portuguese_Brasil");
   int tipo;
   Lista lista[1000];
   carrega(lista);

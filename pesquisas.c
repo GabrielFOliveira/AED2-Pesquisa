@@ -41,7 +41,7 @@ Lista_l pesquisaSequencialMun(Lista_l *ll, char nome){
 
 Lista pesquisaSequencialDia(Lista *l, int data){
     for(int i=0; i<l->n; i++){
-        if(data == l->celulas[i].data){
+        if(data== l->celulas[i].data){
             return l[i];
         }
     }
