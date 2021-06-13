@@ -103,7 +103,10 @@ int main(){
       //main_bin();
     break;
     case 3 :
-      print_lista(&lista[pesquisaBinariaMun(lista,"Abadia dos Dourados", n)]);
+      //bubbleSortMun(lista, n);
+
+      //print_lista(lista);
+      print_lista(&lista[pesquisaBinariaMun(lista,"Santa Luzia", n)]);
       //main_arv_bin();
     break;
     case 4 :
