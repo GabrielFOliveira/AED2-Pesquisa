@@ -106,11 +106,16 @@ int main(){
       //bubbleSortMun(lista, n);
 
       //print_lista(lista);
-      print_lista(&lista[pesquisaBinariaMun(lista,"Santa Luzia", n)]);
+      printf("Resultado pesquisa binaria: \n%s\n", lista[pesquisaBinariaMun(lista,"Santa Luzia", n)].celulas->municipio);
+      printf("Resultado pesquisa binaria: \n%s\n", lista[pesquisaBinariaMun(lista,"Santa Luzia", n)].celulas->municipio);
+
+      int i = pesquisaBinariaMun(lista,"Santa Luzia", n);
+      print_lista(lista);
+      printf("Pos do pesq binaria data %d",pesquisaBinariaData(lista[i].celulas,20210211, n));
       //main_arv_bin();
     break;
     case 4 :
-      //main_arv_bal();
+
     break;
     case 5 :
       //main_hash();
