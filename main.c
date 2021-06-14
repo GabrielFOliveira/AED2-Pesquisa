@@ -3,8 +3,8 @@
 #include <string.h>
 #include <stdbool.h>
 #include "lista.h"
-//#include "pesquisa_simples.h"
 #include <locale.h>
+#include "arvore.h"
 
 int n=0; // Quantidade de listas no vetor
 
@@ -114,11 +114,38 @@ int main(){
       printf("Pos do pesq binaria data %d",pesquisaBinariaData(lista[i].celulas,20210211, n));
       //main_arv_bin();
     break;
+<<<<<<< Updated upstream
     case 4 :
 
     break;
     case 5 :
+=======
+    case 4 :;
+      //main_arv_bal();
+
+    No* root = NULL;
+    root = insert(root, &lista[0]);
+    for(int i=1;i<n;i++){
+        insert(root, &lista[i]);
+    }
+    inorder(root);
+
+    No* teste = pesquisarArv(root,"Wenceslau Braz");
+    print_lista(teste->lista);
+>>>>>>> Stashed changes
       //main_hash();
+
+    NoCel* rootCel = NULL;
+    rootCel = insertCel(rootCel, &teste->lista->celulas[0]);
+    for(int i=1;i<teste->lista->n;i++){
+        insertCel(rootCel, &teste->lista->celulas[i]);
+    }
+    inorderCel(rootCel);
+
+    NoCel* testeCel = pesquisarCel(rootCel,20210510);
+    print_celula(testeCel->celula[0]);
+      //main_hash();
+
     break;
 
   }
