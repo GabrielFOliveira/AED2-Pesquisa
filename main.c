@@ -114,12 +114,7 @@ int main(){
       printf("Pos do pesq binaria data %d",pesquisaBinariaData(lista[i].celulas,20210211, n));
       //main_arv_bin();
     break;
-<<<<<<< Updated upstream
-    case 4 :
 
-    break;
-    case 5 :
-=======
     case 4 :;
       //main_arv_bal();
 
@@ -132,15 +127,14 @@ int main(){
 
     No* teste = pesquisarArv(root,"Wenceslau Braz");
     print_lista(teste->lista);
->>>>>>> Stashed changes
-      //main_hash();
+
 
     NoCel* rootCel = NULL;
     rootCel = insertCel(rootCel, &teste->lista->celulas[0]);
     for(int i=1;i<teste->lista->n;i++){
         insertCel(rootCel, &teste->lista->celulas[i]);
     }
-    inorderCel(rootCel);
+    //inorderCel(rootCel);
 
     NoCel* testeCel = pesquisarCel(rootCel,20210510);
     print_celula(testeCel->celula[0]);
