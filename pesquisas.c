@@ -1,5 +1,4 @@
 #include "lista.h"
-//#include "pesquisa_simples.h"
 #include <stdbool.h>
 
 void swap(Lista *n1, Lista *n2){

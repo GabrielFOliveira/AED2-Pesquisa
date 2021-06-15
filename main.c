@@ -5,6 +5,8 @@
 #include "lista.h"
 #include <locale.h>
 #include "arvore.h"
+#include "arvoreavl.h"
+#include "pesquisa.h"
 
 int n=0; // Quantidade de listas no vetor
 
@@ -118,30 +120,49 @@ int main(){
     case 4 :;
       //main_arv_bal();
 
-    No* root = NULL;
-    root = insert(root, &lista[0]);
-    for(int i=1;i<n;i++){
-        insert(root, &lista[i]);
-    }
-    inorder(root);
+      No* root = NULL;
+      root = insert(root, &lista[0]);
+      for(int i=1;i<n;i++){
+          insert(root, &lista[i]);
+      }
+      inorder(root);
 
-    No* teste = pesquisarArv(root,"Wenceslau Braz");
-    print_lista(teste->lista);
+      No* teste = pesquisarArv(root,"Wenceslau Braz");
+      print_lista(teste->lista);
 
 
-    NoCel* rootCel = NULL;
-    rootCel = insertCel(rootCel, &teste->lista->celulas[0]);
-    for(int i=1;i<teste->lista->n;i++){
-        insertCel(rootCel, &teste->lista->celulas[i]);
-    }
-    //inorderCel(rootCel);
+      NoCel* rootCel = NULL;
+      rootCel = insertCel(rootCel, &teste->lista->celulas[0]);
+      for(int i=1;i<teste->lista->n;i++){
+          insertCel(rootCel, &teste->lista->celulas[i]);
+      }
+      //inorderCel(rootCel);
 
-    NoCel* testeCel = pesquisarCel(rootCel,20210510);
-    print_celula(testeCel->celula[0]);
-      //main_hash();
+      NoCel* testeCel = pesquisarCel(rootCel,20210510);
+      print_celula(testeCel->celula[0]);
 
     break;
+    case 5 :;
+      No_AVL *rootAVL = NULL;
+      rootAVL = insertAVL(rootAVL, &lista[0]);
+      for(int i=1;i<n;i++){
+          rootAVL = insertAVL(rootAVL, &lista[i]);
+      }
 
+      //preOrder(rootAVL);
+      No_AVL* testeAVL = pesquisarArv_AVL(rootAVL,"Wenceslau Braz");
+      //print_lista(testeAVL->lista);
+
+
+      NoCel_AVL* rootCelAVL = NULL;
+      rootCelAVL = insertNoCelAVL(rootCelAVL, &testeAVL->lista->celulas[0]);
+      for(int i=1;i<testeAVL->lista->n;i++){
+          rootCelAVL = insertNoCelAVL(rootCelAVL, &testeAVL->lista->celulas[i]);
+      }
+      preOrderNoCel(rootCelAVL);
+      NoCel_AVL* testeCelAVL = pesquisarArvNoCel_AVL(rootCelAVL, 20210511);
+      print_celula(testeCelAVL->celula[0]);
+    break;
   }
 }
 
