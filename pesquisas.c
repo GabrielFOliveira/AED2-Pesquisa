@@ -54,41 +54,35 @@ void bubbleSortMun(Lista *vetor, int n) {
 
 
 //pesquisa sequencial municipio
-int pesquisaSequencialMun(Lista *l, char *nome, int n){
+Lista* pesquisaSequencialMun(Lista *l, char *nome, int n){
     for(int i=0; i<n; i++){
         if(strcmp(nome,l[i].celulas->municipio)==0){
-            return i;
-
+            return &l[i];
         }
     }
-    return -1;
+    return NULL;
 }
 
-int pesquisaSequencialDia(Lista *l, int data, int n){
-    for(int i=0; i<l->n; i++){
-        if(data== l->celulas[i].data){
-            return i;
+Celula pesquisaSequencialDia(Celula* celulas, int data, int n){
+    for(int i=0; i<n; i++){
+        if(data== celulas[i].data){
+            return celulas[i];
         }
     }
-    return -1;
 }
 //pesquisa binária para pesquisar o município no vetor de lista
 int pesquisaBinariaMun(Lista *l, char *nome, int n){
-
-
 
     bubbleSortMun(l,n);
 
 
 
-    bool resp = false;
 
     int dir = n - 1, esq = 0, meio;
 
     while (esq <= dir){
         meio = (esq + dir) / 2;
         if (strcmp(nome,l[meio].celulas[0].municipio)==0){
-            resp = true;
             esq = n;
             return meio;
         }else if(strcmp(nome,l[meio].celulas[0].municipio)==1)
@@ -109,25 +103,14 @@ int pesquisaBinariaMun(Lista *l, char *nome, int n){
 
 int pesquisaBinariaData(Celula *c, int data, int n){
 
-
-
     bubbleSortData(c,n);
-
-    printf("celulas ordenada");
-    for(int i=0;i<n;i++){
-        print_celula(c[i]);
-    }
-
-    bool resp = false;
 
     int dir = n - 1, esq = 0, meio;
     while (esq <= dir){
 
         meio = (esq + dir) / 2;
-        printf("Meio: %d \nData: %d\n",meio, c[meio].data);
 
         if (c[meio].data==data){
-            resp = true;
             esq = n;
             return meio;
         }else if(c[meio].data<data)

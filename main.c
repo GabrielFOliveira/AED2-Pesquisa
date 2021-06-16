@@ -68,7 +68,7 @@ void carrega(Lista *lista){
   }
   FILE *pont_arq;
   char line[1024];
-  pont_arq = fopen("dadosteste.csv", "r");
+  pont_arq = fopen("dados.csv", "r");
   fgets(line, 1024, pont_arq);
   char* tmp = strdup(line);
   add_lista(&lista[n],getarqcelula(tmp));
@@ -85,7 +85,7 @@ void carrega(Lista *lista){
   }
   for(int i=0;i<n;i++){
 //    printf("%s\n",lista[i].celulas->municipio);
-      print_lista(&lista[i]);
+      //print_lista(&lista[i]);
   }
 }
 
@@ -93,33 +93,32 @@ void carrega(Lista *lista){
 int main(){
   setlocale(LC_ALL, "Portuguese_Brasil");
   int tipo;
+  char municipio[100];
+  int dia, mes, ano, data;
   Lista lista[1000];
   carrega(lista);
+  printf("Lista caregada!\n");
+  printf("Digite o nome da cidade desejada:\n");
+  gets(municipio);
+  printf("Digite a data do registro (formato XX/XX/XX)\n");
+  scanf("%d/%d/%d",&dia,&mes,&ano);
+  mes*=100;
+  ano*=10000;
+  data=ano+mes+dia;
+  printf("Selecione a opção de pesquisa:\n 1) Pesquisa Sequencial\n 2) Pesquisa Binária\n 3) Arvore Binaria\n 4) Arvore Binaria AVL\n");
+
 	scanf("%d", &tipo);
 	switch ( tipo ) {
-    case 1 :
-      print_lista(&lista[pesquisaSequencialMun(lista,"Abadia dos Dourados", n)]);
+    case 1 :;
+      Lista* listal;
+      listal=pesquisaSequencialMun(lista, municipio, n);
+      print_celula(pesquisaSequencialDia(listal->celulas,data,listal->n));
     break;
-    case 2 :
-      print_lista(&lista[pesquisaSequencialDia(lista,20200327, n)]);
-      //main_bin();
+    case 2 :;
+      int i = pesquisaBinariaMun(lista, municipio, n);
+      print_celula(lista[i].celulas[pesquisaBinariaData(lista[i].celulas,data, n)]);
     break;
-    case 3 :
-      //bubbleSortMun(lista, n);
-
-      //print_lista(lista);
-      printf("Resultado pesquisa binaria: \n%s\n", lista[pesquisaBinariaMun(lista,"Santa Luzia", n)].celulas->municipio);
-      printf("Resultado pesquisa binaria: \n%s\n", lista[pesquisaBinariaMun(lista,"Santa Luzia", n)].celulas->municipio);
-
-      int i = pesquisaBinariaMun(lista,"Santa Luzia", n);
-      print_lista(lista);
-      printf("Pos do pesq binaria data %d",pesquisaBinariaData(lista[i].celulas,20210211, n));
-      //main_arv_bin();
-    break;
-
-    case 4 :;
-      //main_arv_bal();
-
+    case 3 :;
       No* root = NULL;
       root = insert(root, &lista[0]);
       for(int i=1;i<n;i++){
@@ -127,7 +126,7 @@ int main(){
       }
       inorder(root);
 
-      No* teste = pesquisarArv(root,"Wenceslau Braz");
+      No* teste = pesquisarArv(root, municipio);
       print_lista(teste->lista);
 
 
@@ -138,11 +137,14 @@ int main(){
       }
       //inorderCel(rootCel);
 
-      NoCel* testeCel = pesquisarCel(rootCel,20210510);
+      NoCel* testeCel = pesquisarCel(rootCel,data);
       print_celula(testeCel->celula[0]);
 
+      //main_arv_bin();
     break;
-    case 5 :;
+
+    case 4 :;
+      //main_arv_bal();
       No_AVL *rootAVL = NULL;
       rootAVL = insertAVL(rootAVL, &lista[0]);
       for(int i=1;i<n;i++){
@@ -150,7 +152,7 @@ int main(){
       }
 
       //preOrder(rootAVL);
-      No_AVL* testeAVL = pesquisarArv_AVL(rootAVL,"Wenceslau Braz");
+      No_AVL* testeAVL = pesquisarArv_AVL(rootAVL,municipio);
       //print_lista(testeAVL->lista);
 
 
@@ -160,8 +162,13 @@ int main(){
           rootCelAVL = insertNoCelAVL(rootCelAVL, &testeAVL->lista->celulas[i]);
       }
       preOrderNoCel(rootCelAVL);
-      NoCel_AVL* testeCelAVL = pesquisarArvNoCel_AVL(rootCelAVL, 20210511);
+      NoCel_AVL* testeCelAVL = pesquisarArvNoCel_AVL(rootCelAVL, data);
       print_celula(testeCelAVL->celula[0]);
+
+
+    break;
+    case 5 :;
+
     break;
   }
 }
