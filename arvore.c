@@ -1,7 +1,6 @@
 #include "arvore.h"
 
 
-// todos os x
 
 No *novo_No(Lista* lista) {
  No* novo = (No*) malloc(sizeof(No));

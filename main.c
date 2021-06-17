@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "lista.h"
+#include <time.h>
 #include <locale.h>
+#include "lista.h"
 #include "arvore.h"
 #include "arvoreavl.h"
 #include "pesquisa.h"
@@ -83,10 +84,6 @@ void carrega(Lista *lista){
       n++;
     }
   }
-  for(int i=0;i<n;i++){
-//    printf("%s\n",lista[i].celulas->municipio);
-      //print_lista(&lista[i]);
-  }
 }
 
 
@@ -96,80 +93,72 @@ int main(){
   char municipio[100];
   int dia, mes, ano, data;
   Lista lista[1000];
+  clock_t start_time, end_time;
+  double cpu_time_used;
   carrega(lista);
   printf("Lista caregada!\n");
   printf("Digite o nome da cidade desejada:\n");
   gets(municipio);
-  printf("Digite a data do registro (formato XX/XX/XX)\n");
+  printf("Digite a data do registro (formato XX/XX/XXXX)\n");
   scanf("%d/%d/%d",&dia,&mes,&ano);
   mes*=100;
   ano*=10000;
   data=ano+mes+dia;
-  printf("Selecione a opção de pesquisa:\n 1) Pesquisa Sequencial\n 2) Pesquisa Binária\n 3) Arvore Binaria\n 4) Arvore Binaria AVL\n");
+  while(tipo!=0){
+    printf("Selecione a opcao de pesquisa:\n 1) Pesquisa Sequencial\n 2) Pesquisa Binaria\n 3) Arvore Binaria\n 4) Arvore Binaria AVL\n 0 - Para sair\n");
+    scanf("%d", &tipo);
+    start_time = clock();
+    switch ( tipo ) {
+      case 1 :;
+        Lista* listal;
+        listal=pesquisaSequencialMun(lista, municipio, n);
+        print_celula(pesquisaSequencialDia(listal->celulas,data,listal->n));
+      break;
+      case 2 :;
+        int i = pesquisaBinariaMun(lista, municipio, n);
+        print_celula(lista[i].celulas[pesquisaBinariaData(lista[i].celulas,data, n)]);
+      break;
+      case 3 :;
+        No* root = NULL;
+        root = insert(root, &lista[0]);
+        for(int i=1;i<n;i++){
+            insert(root, &lista[i]);
+        }
+        No* teste = pesquisarArv(root, municipio);
 
-	scanf("%d", &tipo);
-	switch ( tipo ) {
-    case 1 :;
-      Lista* listal;
-      listal=pesquisaSequencialMun(lista, municipio, n);
-      print_celula(pesquisaSequencialDia(listal->celulas,data,listal->n));
-    break;
-    case 2 :;
-      int i = pesquisaBinariaMun(lista, municipio, n);
-      print_celula(lista[i].celulas[pesquisaBinariaData(lista[i].celulas,data, n)]);
-    break;
-    case 3 :;
-      No* root = NULL;
-      root = insert(root, &lista[0]);
-      for(int i=1;i<n;i++){
-          insert(root, &lista[i]);
-      }
-      inorder(root);
+        NoCel* rootCel = NULL;
+        rootCel = insertCel(rootCel, &teste->lista->celulas[0]);
+        for(int i=1;i<teste->lista->n;i++){
+            insertCel(rootCel, &teste->lista->celulas[i]);
+        }
+        NoCel* testeCel = pesquisarCel(rootCel,data);
+        print_celula(testeCel->celula[0]);
 
-      No* teste = pesquisarArv(root, municipio);
-      print_lista(teste->lista);
+      break;
+      case 4 :;
+        No_AVL *rootAVL = NULL;
+        rootAVL = insertAVL(rootAVL, &lista[0]);
+        for(int i=1;i<n;i++){
+            rootAVL = insertAVL(rootAVL, &lista[i]);
+        }
 
+        No_AVL* testeAVL = pesquisarArv_AVL(rootAVL,municipio);
 
-      NoCel* rootCel = NULL;
-      rootCel = insertCel(rootCel, &teste->lista->celulas[0]);
-      for(int i=1;i<teste->lista->n;i++){
-          insertCel(rootCel, &teste->lista->celulas[i]);
-      }
-      //inorderCel(rootCel);
+        NoCel_AVL* rootCelAVL = NULL;
+        rootCelAVL = insertNoCelAVL(rootCelAVL, &testeAVL->lista->celulas[0]);
+        for(int i=1;i<testeAVL->lista->n;i++){
+            rootCelAVL = insertNoCelAVL(rootCelAVL, &testeAVL->lista->celulas[i]);
+        }
+        NoCel_AVL* testeCelAVL = pesquisarArvNoCel_AVL(rootCelAVL, data);
+        print_celula(testeCelAVL->celula[0]);
+      break;
+      case 5 :;
 
-      NoCel* testeCel = pesquisarCel(rootCel,data);
-      print_celula(testeCel->celula[0]);
-
-      //main_arv_bin();
-    break;
-
-    case 4 :;
-      //main_arv_bal();
-      No_AVL *rootAVL = NULL;
-      rootAVL = insertAVL(rootAVL, &lista[0]);
-      for(int i=1;i<n;i++){
-          rootAVL = insertAVL(rootAVL, &lista[i]);
-      }
-
-      //preOrder(rootAVL);
-      No_AVL* testeAVL = pesquisarArv_AVL(rootAVL,municipio);
-      //print_lista(testeAVL->lista);
-
-
-      NoCel_AVL* rootCelAVL = NULL;
-      rootCelAVL = insertNoCelAVL(rootCelAVL, &testeAVL->lista->celulas[0]);
-      for(int i=1;i<testeAVL->lista->n;i++){
-          rootCelAVL = insertNoCelAVL(rootCelAVL, &testeAVL->lista->celulas[i]);
-      }
-      preOrderNoCel(rootCelAVL);
-      NoCel_AVL* testeCelAVL = pesquisarArvNoCel_AVL(rootCelAVL, data);
-      print_celula(testeCelAVL->celula[0]);
-
-
-    break;
-    case 5 :;
-
-    break;
+      break;
+    }
+    end_time = clock();
+    cpu_time_used = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
+    printf("Tempo: %f segundos\n",cpu_time_used);
   }
 }
 
