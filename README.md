@@ -27,3 +27,13 @@ A pesquisa sequencial foi feita de maneira simples, apenas recebendo como parâm
 ### 4 - Pesquisa Binária: 
 
 Para realizar a pesquisa binária, também foi dividido em pesquisa por município e por dia. O algoritmo de ordenação escolhido foi o Bubble Sort, devido a sua simplicidade de implementação. Foi verificada uma complexidade de xxx para este tipo de pesquisa.
+
+### 5 - Ávore de busca:
+
+### 6 - Árvore AVL:
+
+### 7 - Tabela Hash:
+
+### 8 - Desafios:
+
+### 9 - Conclusões:
