@@ -85,6 +85,61 @@ void carrega(Lista *lista){
     }
   }
 }
+void ler_arquivo_hash(Registro a){
+
+      TabelaHash tabela;
+
+      new_hash(&tabela);
+
+    FILE* arq = fopen("dados.csv", "r");
+
+    char line[1024];
+    while (fgets(line, 1024, arq)){
+
+        char data[10];
+	int dia,mes,ano;
+  char* tmp1;
+  char* tmp2;
+  char* tmp3;
+  char* tmp4;
+  char* tmp5;
+  char* tmp6;
+  char* tmp7;
+  char* tmp8;
+  char* tmp9;
+
+  tmp1 = strdup(line);tmp2 = strdup(line);tmp3 = strdup(line);tmp4 = strdup(line);tmp5 = strdup(line);tmp6 = strdup(line);tmp7 = strdup(line);tmp8 = strdup(line);tmp9 = strdup(line);
+
+  strcpy(a.municipio,getfield(tmp1,1));
+  a.codMunicipio=atol(getfield(tmp2,2));
+  a.codRegiaoSaude=atol(getfield(tmp3,3));
+  strcpy(a.nomeRegiaoSaude,getfield(tmp4,4));
+  strcpy(data,getfield(tmp5,5));
+  dia=atoi(getfieldbar(data,1));
+  mes=atoi(getfieldbar(data,2))*100;
+  ano=atoi(getfieldbar(data,3))*10000;
+  a.data=dia+mes+ano;  //20210530
+  a.populacao=atol(getfield(tmp6,7));
+  a.casosAcumulados=atol(getfield(tmp7,8));
+  a.casosNovos=atol(getfield(tmp8,9));
+  a.obitosAcumulados=atol(getfield(tmp9,10));
+
+  //print_celula(a);
+
+  free(tmp1);
+  free(tmp2);
+  free(tmp3);
+  free(tmp4);
+  free(tmp5);
+  free(tmp6);
+  free(tmp7);
+  free(tmp8);
+  free(tmp9);
+
+    add_hash(&tabela,a);
+
+    }
+}
 
 
 int main(){
@@ -152,8 +207,11 @@ int main(){
         NoCel_AVL* testeCelAVL = pesquisarArvNoCel_AVL(rootCelAVL, data);
         print_celula(testeCelAVL->celula[0]);
       break;
-      case 5 :;
-
+      case 5 :  
+        Registro c;
+        ler_arquivo_hash(c);
+        c.municipio = municipio;
+        pesquisa_hash(&tabela,c.municipio);
       break;
     }
     end_time = clock();
