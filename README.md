@@ -35,6 +35,7 @@ Para realizar a arvore binária, a pesquisa foi divida novamente por municipio e
 Para realizar a Árvore AVL, também foi dividido em pesquisa por município e por dia. O dados foram estruturados em árvore, durante a inserção, nós maiores são inseridos à direita e nós menores, inseridos à esquerda. Realizando balanceamento para cada inserção, buscando atingir um balaço entre a altura final da arvore.
 Verificando uma complexidade de pesquisa O(logn).
 ### 7 - Tabela Hash:
+Para realizar a pesquisa em tabela HASH foi utilizado o município. A inserção na tabela HASH deve ser feito por números inteiros então foi nescessário a criação de um método chamado "converter" para transformar strings em int com valores de acordo com a a tabela ASCII. A tabela HASH foi implementada de forma indireta com tratamento de colisões com uma lista flexivel tendo uma complexidade com muitas variações, mas concluindo que no pior caso foi O(n), como trabalhamos com um arquivo muito grande o seu hash ficou um tanto quanto "aleatório".
 
 ### 8 - Desafios:
 
