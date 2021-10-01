@@ -1,7 +1,7 @@
 # AED2-Pesquisa
 
 ### Integrantes do grupo:
-- Abrãao Melo ([@AbraMelo](https://github.com/AbraMelo)
+- Abrãao Melo ([@AbraMelo](https://github.com/AbraMelo))
 - Gabriel França Oliveira ([@GabrielFOliveira](https://github.com/GabrielFOliveira))
 - Milleny Teixeira de Souza ([@millenyteixeira](https://github.com/millenyteixeira))
 
