@@ -1,13 +1,13 @@
 # AED2-Pesquisa
 
 ### Integrantes do grupo:
-- Abrãao Melo
-- Gabriel França Oliveira
-- Milleny Teixeira
+- Abrãao Melo ([@AbraMelo](https://github.com/AbraMelo)
+- Gabriel França Oliveira ([@GabrielFOliveira](https://github.com/GabrielFOliveira))
+- Milleny Teixeira de Souza ([@millenyteixeira](https://github.com/millenyteixeira))
 
 ### Enunciado: 
 
-O objetivo desta atividade prática é exercitar o uso de estrutura de dados para recuperar informações em memória principal. Você deverá implementar as estruturas de pesquisa estudadas em sala (Pesquisa Sequencial, Pesquisa Binária, Árvore de Pesquisa Binária, Árvore de Pesquisa Binária Balanceada, Tabelas Hash) para indexar e facilitar a recuperação de informações relacionado a Covid-19 no brasil, disponibilizado pelo governo federal no endereço: https://covid.saude.gov.br/ (Links para um site externo.)
+O objetivo desta atividade prática é exercitar o uso de estrutura de dados para recuperar informações em memória principal. Você deverá implementar as estruturas de pesquisa estudadas em sala (Pesquisa Sequencial, Pesquisa Binária, Árvore de Pesquisa Binária, Árvore de Pesquisa Binária Balanceada, Tabelas Hash) para indexar e facilitar a recuperação de informações relacionado a Covid-19 no brasil, disponibilizado pelo governo federal no endereço: https://covid.saude.gov.br/ 
 
 Você terá a liberdade para definir quais consultas o seu sistema irá disponibilizar para os usuários. Para cada consulta você deverá mostrar o custo computacional (tempo e quantidade de comparações) em cada uma das estruturas implementadas.
 
