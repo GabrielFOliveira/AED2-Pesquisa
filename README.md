@@ -1,9 +1,10 @@
 # AED2-Pesquisa
 
 ### Integrantes do grupo:
-Abrãao Melo
-Gabriel França Oliveira
-Milleny Teixeira
+- Abrãao Melo
+- Gabriel França Oliveira
+- Milleny Teixeira
+
 ### Enunciado: 
 
 O objetivo desta atividade prática é exercitar o uso de estrutura de dados para recuperar informações em memória principal. Você deverá implementar as estruturas de pesquisa estudadas em sala (Pesquisa Sequencial, Pesquisa Binária, Árvore de Pesquisa Binária, Árvore de Pesquisa Binária Balanceada, Tabelas Hash) para indexar e facilitar a recuperação de informações relacionado a Covid-19 no brasil, disponibilizado pelo governo federal no endereço: https://covid.saude.gov.br/ (Links para um site externo.)
